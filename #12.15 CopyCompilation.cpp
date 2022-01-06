@@ -9,12 +9,12 @@ class Pos {
 
 class MAIN {
     public static void main(String[] args) {
-        //1Â÷¿ø ¹è¿­
+        //1ì°¨ì› ë°°ì—´
         int[] a = {1,2,3,4,5};
-        int[] b = a;                            //÷Àº º¹»ç
-        int[] c = a.clone();                    //±íÀº º¹»ç1
-        int[] d = Arrays.copyOf(a, a.length);   //±íÀº º¹»ç2
-        int[] e = new int[5];                   //±íÀº º¹»ç3
+        int[] b = a;                            //Âæ±° ë³µì‚¬
+        int[] c = a.clone();                    //ê¹Šì€ ë³µì‚¬1
+        int[] d = Arrays.copyOf(a, a.length);   //ê¹Šì€ ë³µì‚¬2
+        int[] e = new int[5];                   //ê¹Šì€ ë³µì‚¬3
         for (int i = 0; i < e.length; i++) {
             e[i] = a[i];
         }
@@ -30,18 +30,18 @@ class MAIN {
         System.out.println(a[0]+" "+b[0]+" "+c[0]+" "+d[0]+" "+e[0]);
 
 
-        //2Â÷¿ø ¹è¿­
+        //2ì°¨ì› ë°°ì—´
         int[][] A = {{1,2,3,4,5}, {6,7,8,9,10}};
-        int[][] B = A;                              // ÷Àº º¹»ç1
-        int[][] C = A.clone();                      // ÷Àº º¹»ç2
-        B[0][0] = 999;                              // ´Ü¼ø º¯¼ö ¼±¾ğ »Ó¸¸ ¾Æ´Ï¶ó A.clone()À» »ç¿ëÇØµµ ¾èÀº º¹»ç°¡ µÊ
-        System.out.println("'B'¸¦ ¹Ù²Ù¸é 'A'°ªÀÌ ¹Ù²ò´Ï´Ù! : "+A[0][0]);
+        int[][] B = A;                              // Âæ±° ë³µì‚¬1
+        int[][] C = A.clone();                      // Âæ±° ë³µì‚¬2
+        B[0][0] = 999;                              // ë‹¨ìˆœ ë³€ìˆ˜ ì„ ì–¸ ë¿ë§Œ ì•„ë‹ˆë¼ A.clone()ì„ ì‚¬ìš©í•´ë„ ì–•ì€ ë³µì‚¬ê°€ ë¨
+        System.out.println("'B'ë¥¼ ë°”ê¾¸ë©´ 'A'ê°’ì´ ë°”ë€ë‹ˆë‹¤! : "+A[0][0]);
         C[0][0] = 777;
-        System.out.println("'C'¸¦ ¹Ù²ãµµ 'A'°ªÀÌ ¹Ù²ò´Ï´Ù! : "+A[0][0]);
+        System.out.println("'C'ë¥¼ ë°”ê¿”ë„ 'A'ê°’ì´ ë°”ë€ë‹ˆë‹¤! : "+A[0][0]);
 
 
-        int[][] D = new int[A.length][A[0].length];         // ±íÀºº¹»ç1 (2Áß ¹İº¹¹®)
-        int[][] F = new int[A.length][A[0].length];         // ±íÀºº¹»ç2 (¹İº¹¹® + ArrayCopy)
+        int[][] D = new int[A.length][A[0].length];         // ê¹Šì€ë³µì‚¬1 (2ì¤‘ ë°˜ë³µë¬¸)
+        int[][] F = new int[A.length][A[0].length];         // ê¹Šì€ë³µì‚¬2 (ë°˜ë³µë¬¸ + ArrayCopy)
         for(int i = 0; i < A.length; i++){
             for(int j = 0 ; j < A[0].length; j++){
                 D[i][j] = A[i][j];
@@ -55,23 +55,23 @@ class MAIN {
         System.out.println(A[0][0]+" "+D[0][0]+" "+F[0][0]);
 
 
-        //½ºÆ®¸µ
+        //ìŠ¤íŠ¸ë§
         String str1 = "abc";
-        String str2 = str1;         //±íÀº º¹»ç(stringÅ¬·¡½º´Â ÀĞÀ»¼ö¸¸ ÀÖ°í °ªº¯È­ ¸øÁÜ ±×·¡¼­ »õ·Î »ı¼ºÇÏ´Â°ÅÀÓ)
+        String str2 = str1;         //ê¹Šì€ ë³µì‚¬(stringí´ë˜ìŠ¤ëŠ” ì½ì„ìˆ˜ë§Œ ìˆê³  ê°’ë³€í™” ëª»ì¤Œ ê·¸ë˜ì„œ ìƒˆë¡œ ìƒì„±í•˜ëŠ”ê±°ì„)
         str2 += "123";
         System.out.println(str1+" "+str2);
 
 
-        //°´Ã¼ ¹è¿­
+        //ê°ì²´ ë°°ì—´
         System.out.println();
         Pos p1= new Pos(1);    Pos p2 = new Pos(2);    Pos p3 = new Pos(30);
         Pos arr[] = {p1, p2, p3};   //1, 2, 30
-        Pos brr[] = arr;            //÷Àº º¹»ç
-        Pos crr[] = arr.clone();    //±íÀº º¹»ç (System.arraycopy½áµµ µÊ)
+        Pos brr[] = arr;            //Âæ±° ë³µì‚¬
+        Pos crr[] = arr.clone();    //ê¹Šì€ ë³µì‚¬ (System.arraycopyì¨ë„ ë¨)
 
 
-        brr[0] = new Pos(12);                 //¿µÇâ ¤·
-        brr[1].val = 24;                      //¸ğµÎ ¿µÇâ
+        brr[0] = new Pos(12);                 //ì˜í–¥ ã…‡
+        brr[1].val = 24;                      //ëª¨ë‘ ì˜í–¥
         
         for (int i = 0; i < arr.length; i++) {
             System.out.print("arr : "+arr[i].val+" ");
@@ -81,9 +81,9 @@ class MAIN {
         }
         System.out.println();
 
-        crr[0] = new Pos(50);                     //¿µÇâ x
-        crr[1].val = 40;                          //¸ğµÎ ¿µÇâ
-        crr[0].val = 36;				          //¿µÇâ x 
+        crr[0] = new Pos(50);                     //ì˜í–¥ x
+        crr[1].val = 40;                          //ëª¨ë‘ ì˜í–¥
+        crr[0].val = 36;				          //ì˜í–¥ x 
         for (int i = 0; i < arr.length; i++) {
             System.out.print("arr : "+arr[i].val+" ");
             System.out.print("brr : "+brr[i].val+" ");
@@ -93,12 +93,12 @@ class MAIN {
         System.out.println();
         
         
-        //******°´Ã¼¹è¿­ 
+        //******ê°ì²´ë°°ì—´ 
 		Pos p1= new Pos(1);    Pos p2 = new Pos(2);    Pos p3 = new Pos(3);
         Pos arr[] = {p1, p2, p3};   //1, 2, 3
         Pos brr[] = new Pos[3];
 
-        for (int i = 0; i < arr.length; i++) {  //±íÀºº¹»ç
+        for (int i = 0; i < arr.length; i++) {  //ê¹Šì€ë³µì‚¬
             brr[i] = new Pos(arr[i].val);
         }
 
