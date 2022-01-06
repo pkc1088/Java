@@ -11,19 +11,19 @@ class Main {
         String[] strArr5 = {"aaa", "bb", "c", "dddd"};
         String[] strArr6 = {"aaa", "bb", "c", "dddd"};
 
-                         //stream¸¸µé±â     //IntStream¸¸µé±â      //OptionalInt·Î ¹ÝÈ¯
+                         //streamë§Œë“¤ê¸°     //IntStreamë§Œë“¤ê¸°      //OptionalIntë¡œ ë°˜í™˜
         OptionalInt max = Stream.of(strArr1).mapToInt(String::length).max();
         System.out.println(max.getAsInt());
 
-                        //stream¸¸µé±â     //IntStream¸¸µé±â      //T·Î ¹ÝÈ¯
+                        //streamë§Œë“¤ê¸°     //IntStreamë§Œë“¤ê¸°      //Të¡œ ë°˜í™˜
         int max2 = Stream.of(strArr2).mapToInt(String::length).reduce(Integer.MIN_VALUE, (a,b)-> a>b?a:b);
         System.out.println(max2);
 
-                        //stream¸¸µé±â     //IntStream¸¸µé±â              //Optional<T>·Î ¹ÝÈ¯
+                        //streamë§Œë“¤ê¸°     //IntStreamë§Œë“¤ê¸°              //Optional<T>ë¡œ ë°˜í™˜
         OptionalInt max3 = Stream.of(strArr3).mapToInt(String::length).reduce(Integer::max);
         System.out.println(max3.getAsInt());
 
-                        //stream¸¸µé±â     //Stream<T>¹ÝÈ¯       //T·Î ¹ÝÈ¯
+                        //streamë§Œë“¤ê¸°     //Stream<T>ë°˜í™˜       //Të¡œ ë°˜í™˜
         Integer max4 = Stream.of(strArr4).map(String::length).reduce(Integer.MIN_VALUE, (p,q)->Integer.max(p,q));
         System.out.println(max4);
 
