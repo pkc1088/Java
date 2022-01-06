@@ -7,19 +7,19 @@ class Main {
         String[] strArr2 = {"aaa", "bb", "c", "dddd"};
         String[] strArr3 = {"aaa", "bb", "c", "dddd"};
         String[] strArr4 = {"aaa", "bb", "c", "dddd"};
-                        //stream¸¸µé±â     //IntStream¸¸µé±â      //IntStream ¸Þ¼­µå
+                        //streamë§Œë“¤ê¸°     //IntStreamë§Œë“¤ê¸°      //IntStream ë©”ì„œë“œ
         int sum = Stream.of(strArr1).mapToInt(String::length).sum();
         System.out.println(sum);
 
-                        //stream¸¸µé±â     //IntStream¸¸µé±â      //T·Î ¹ÝÈ¯
+                        //streamë§Œë“¤ê¸°     //IntStreamë§Œë“¤ê¸°      //Të¡œ ë°˜í™˜
         int sum2 = Stream.of(strArr2).mapToInt(String::length).reduce(0, (a,b)->a+b);
         System.out.println(sum2);
 
-                        //stream¸¸µé±â     //IntStream¸¸µé±â              //Optional<T>·Î ¹ÝÈ¯
+                        //streamë§Œë“¤ê¸°     //IntStreamë§Œë“¤ê¸°              //Optional<T>ë¡œ ë°˜í™˜
         OptionalInt sum3 = Stream.of(strArr3).mapToInt(String::length).reduce((a,b)->a+b);
         System.out.println(sum3.getAsInt());
 
-                        //stream¸¸µé±â     //Stream<T>¹ÝÈ¯       //T·Î ¹ÝÈ¯
+                        //streamë§Œë“¤ê¸°     //Stream<T>ë°˜í™˜       //Të¡œ ë°˜í™˜
         Integer sum4 = Stream.of(strArr4).map(String::length).reduce(0, (p,q)->Integer.sum(p,q));
         System.out.println(sum4);
     }
