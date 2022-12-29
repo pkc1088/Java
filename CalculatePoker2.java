@@ -7,39 +7,38 @@ public class Main {
         System.out.println("모드, 플레이어 수, 판 수, 총 금액, 쩜당, 기타 인원 입력");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-        ArrayList<Integer> players = null;
+        ArrayList<Double> players = null;
         int mode = Integer.parseInt(st.nextToken());
         int player_num = Integer.parseInt(st.nextToken());
         int hand_num = Integer.parseInt(st.nextToken());
-        int total_pay = Integer.parseInt(st.nextToken());
+        double total_pay = Double.parseDouble(st.nextToken());
         int ratio = Integer.parseInt(st.nextToken());
         int etc_num = Integer.parseInt(st.nextToken());
-        int beverage = 0, money_per_hour = 0, total_play_time = 0;
+        double beverage, money_per_hour, total_play_time;
         boolean passed = false;
 
         if(mode == 1)
-            players = new ArrayList<Integer>(Collections.nCopies(player_num, (-1) * total_pay / player_num));
+            players = new ArrayList<Double>(Collections.nCopies(player_num, (-1) * total_pay / player_num));
 
         if(mode == 2) {
             System.out.println("\n음료평균값, 시간 당 금액, 총 플레이한 시간");
             st = new StringTokenizer(br.readLine(), " ");
-            beverage = Integer.parseInt(st.nextToken());
-            money_per_hour = Integer.parseInt(st.nextToken());
-            total_play_time = Integer.parseInt(st.nextToken());
-            players = new ArrayList<Integer>(Collections.nCopies(player_num, (-1) * (money_per_hour * total_play_time + beverage)));
+            beverage = Double.parseDouble(st.nextToken());
+            money_per_hour = Double.parseDouble(st.nextToken());
+            total_play_time = Double.parseDouble(st.nextToken());
+            players = new ArrayList<Double>(Collections.nCopies(player_num, (-1) * (money_per_hour * total_play_time + beverage)));
 
             System.out.println("\n중간 개입자 인원수");
             int join_num = Integer.parseInt(br.readLine());
-            
+
             System.out.println("\n중간 개입자와 플레이한 시간 입력");
             for (int i = 0; i < join_num; i++) {
                 st = new StringTokenizer(br.readLine(), " ");
                 int joiner_num = Integer.parseInt(st.nextToken());
-                int joiner_played_time = Integer.parseInt(st.nextToken());
+                Double joiner_played_time = Double.parseDouble(st.nextToken());
                 players.set(joiner_num, players.get(joiner_num) + (total_play_time - joiner_played_time) * money_per_hour);
             }
         }
-
 
         while(etc_num-- > 0) {
             if(!passed) System.out.println("\n기타 비용 사용한 특정 플레이어와 금액 입력");
