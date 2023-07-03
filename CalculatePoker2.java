@@ -35,7 +35,7 @@ public class Main {
             for (int i = 0; i < join_num; i++) {
                 st = new StringTokenizer(br.readLine(), " ");
                 int joiner_num = Integer.parseInt(st.nextToken());
-                Double joiner_played_time = Double.parseDouble(st.nextToken());
+                double joiner_played_time = Double.parseDouble(st.nextToken());
                 players.set(joiner_num, players.get(joiner_num) + (total_play_time - joiner_played_time) * money_per_hour);
             }
         }
@@ -68,11 +68,22 @@ public class Main {
         System.out.println("\n==========정산==========");
         for (int i = 1; i < player_num; i++) {
             if(players.get(i) > 0) {
-                System.out.println("player"+i+"는 결제자로부터 "+players.get(i)+" 받음");
+                System.out.println("player"+i+"는 결제자로부터 "+ ((int) Math.round(players.get(i)) / 100) * 100 +" 받음");
             } else {
-                System.out.println("player"+i+"는 결제자에게 "+(-1) * players.get(i)+" 지불");
+                System.out.println("player"+i+"는 결제자에게 "+(-1) * ((int) Math.round(players.get(i)) / 100) * 100 +" 지불");
             }
         }
 
     }
-}
+}         
+
+//  2 5 3 60500 20 0                                                     
+// 3300 2400 4.166                                                     
+// 1                                                    
+// 4 1.666                                                       
+// 51 429 93                                                     
+// -240 -240 314                                                  
+// 267 -78 -64                                                
+// -78 -240 -103                                           
+// 0 129 -240
+
