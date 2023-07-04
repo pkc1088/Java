@@ -3,6 +3,16 @@ import java.util.*;
 
 
 public class Main {
+    public static String getComleteWord(String name, String firstValue, String secondValue) {
+        char lastName = name.charAt(name.length() - 1);
+        // 한글의 제일 처음과 끝의 범위밖일 경우는 오류
+        if (lastName < 0xAC00 || lastName > 0xD7A3) {
+            return name + "는";
+        }
+        String seletedValue = (lastName - 0xAC00) % 28 > 0 ? firstValue : secondValue;
+        return name + seletedValue;
+    }
+
     public static class Field {
         int player_num;
         int total_cost;
@@ -73,7 +83,7 @@ public class Main {
         String str = "";
         for (int i = 1; i < field.player_num; i++) {
             int result = (player.get(i).payment / 100) * 100;
-            str = player.get(i).name + "은 결제자에게 ";
+            str = Main.getComleteWord(player.get(i).name,"은","는") + " 결제자에게 ";
             str = (result >= 0) ? str + result + "원 지불" : str + (-1) * result + "원 받음";
             System.out.println(str);
         }
